@@ -97,7 +97,23 @@
         uniqueID: charUniqueId
       };
       console.log(Reservation);
-    }
+
+      fetch('/reserve', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(Reservation),
+
+                })
+                .then((response) => response.json())
+                .then((data) =>{
+                  console.log('reserve.html', data);
+                })
+                .catch((error) =>{
+                  console.error('Error:', error);
+                });
+    });
   </script>
 </body>
 
